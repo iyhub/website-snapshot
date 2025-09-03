@@ -1,6 +1,7 @@
 <script lang="ts">
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
+	import Header from "$lib/components/Header.svelte";
 
 	let { children } = $props();
 </script>
@@ -36,7 +37,7 @@
 		content="Free website screenshot tool - Capture full-page screenshots of any website instantly."
 	/>
 
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="x-icon" href={"/favicon.ico"} />
 
 	<title>Website Screenshot Tool - Free Online Screenshot Capture</title>
 
@@ -64,4 +65,5 @@
 	</script>
 </svelte:head>
 
+<Header />
 {@render children?.()}
