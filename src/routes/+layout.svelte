@@ -30,6 +30,7 @@
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="webpika" />
+	<meta name="twitter:image" content={`${domain}/og-image.png`} />
 	<meta
 		name="twitter:title"
 		content="Website Screenshot Tool - Capture Any Webpage"
