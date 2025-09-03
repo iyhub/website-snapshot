@@ -3,6 +3,8 @@
 	import favicon from "$lib/assets/favicon.svg";
 	import Header from "$lib/components/Header.svelte";
 	const domain = "https://webpika.iwhy.dev/";
+	import GA from "$lib/components/GA.svelte";
+	import { dev } from "$app/environment";
 
 	let { children } = $props();
 </script>
@@ -69,5 +71,8 @@
 	</script>
 </svelte:head>
 
+{#if !dev}
+	<GA />
+{/if}
 <Header />
 {@render children?.()}
