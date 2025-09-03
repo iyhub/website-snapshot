@@ -1,9 +1,10 @@
 <script lang="ts">
-	let url = "";
-	let loading = false;
-	let imageData = "";
-	let error = "";
-	let progress = "";
+	import downloadSimple from "$lib/assets/download-simple.svg";
+	let url = $state("https://github.com/iyhub/website-snapshot");
+	let loading = $state(false);
+	let imageData = $state("/screenshots/screenshot-github.png");
+	let error = $state("");
+	let progress = $state("");
 
 	async function captureScreenshot() {
 		if (!url) return;
@@ -215,9 +216,16 @@
 							</h3>
 							<button
 								onclick={downloadImage}
-								class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm"
+								class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green500 text-sm"
 							>
-								Download
+								<span class="flex items-center gap-2">
+									<img
+										src={downloadSimple}
+										alt="Download"
+										class="w-4 h-4"
+									/>
+									Download
+								</span>
 							</button>
 						</div>
 						<img
