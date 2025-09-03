@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { webkit, type Browser } from 'playwright';
+import { chromium, type Browser } from 'playwright';
 import { dev } from '$app/environment';
 import type { RequestHandler } from '@sveltejs/kit';
 
@@ -7,10 +7,11 @@ let browserInstance: Browser | null = null;
 
 async function getBrowser(): Promise<Browser> {
 	if (!browserInstance) {
-		console.log('Launching WebKit browser for API');
-		browserInstance = await webkit.launch(dev ? {} : {
-			args: ['--no-sandbox']
-		});
+		console.log('Launching Chromium browser for API');
+		browserInstance = await chromium.launch(!dev ? {
+			executablePath: '/usr/bin/chromium-browser',
+			args: ['--no-sandbox', '--disable-dev-shm-usage']
+		} : {});
 	}
 	return browserInstance;
 }
