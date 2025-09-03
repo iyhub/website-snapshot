@@ -2,6 +2,7 @@
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
 	import Header from "$lib/components/Header.svelte";
+	const domain = "https://webpika.iwhy.dev";
 
 	let { children } = $props();
 </script>
@@ -25,9 +26,10 @@
 		property="og:description"
 		content="Free website screenshot tool - Capture screenshots of any website instantly. High-quality PNG downloads with streaming progress."
 	/>
-	<meta property="og:image" content="/favicon.svg" />
+	<meta property="og:image" content={`${domain}/og-image.png`} />
 
 	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="webpika" />
 	<meta
 		name="twitter:title"
 		content="Website Screenshot Tool - Capture Any Webpage"
