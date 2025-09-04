@@ -26,6 +26,10 @@ export const actions: Actions = {
 		const data = await request.formData();
 		const urls = data.getAll('urls') as string[];
 
+		return fail(512, {
+			message: "We are working on a better solution for you, please try again later"
+		});
+
 		if (!urls || urls.length === 0) {
 			return fail(400, { error: 'No URLs provided' });
 		}
