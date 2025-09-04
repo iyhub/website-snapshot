@@ -12,6 +12,7 @@ RUN apk add --no-cache \
     ttf-freefont \
     ttf-dejavu \
     font-noto-cjk \
+    font-noto-emoji \
     fontconfig
 
 # 设置 Chromium 路径和字体配置
