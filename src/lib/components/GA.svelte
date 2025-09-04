@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { PUBLIC_GA_ID } from "$env/static/public";
+    const PUBLIC_GA_ID = "G-xxxxxx";
 </script>
 
 <svelte:head>
