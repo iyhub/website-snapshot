@@ -11,7 +11,7 @@ async function getBrowser(): Promise<Browser> {
 		browserInstance = await chromium.launch(!dev ? {
 			executablePath: '/usr/bin/chromium-browser',
 			args: [
-				'--no-sandbox', 
+				'--no-sandbox',
 				'--disable-dev-shm-usage',
 				'--font-render-hinting=none',
 				'--disable-font-subpixel-positioning'
@@ -23,7 +23,10 @@ async function getBrowser(): Promise<Browser> {
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { url: targetUrl } = await request.json();
-	
+	return error(512, {
+		message: "We are working on a better solution for you, please try again later"
+	});
+
 	if (!targetUrl) {
 		return error(400, { message: 'URL is required in request body' });
 	}
@@ -31,11 +34,11 @@ export const POST: RequestHandler = async ({ request }) => {
 	const stream = new ReadableStream({
 		async start(controller) {
 			const encoder = new TextEncoder();
-			
+
 			try {
 				// 发送开始信号
 				controller.enqueue(encoder.encode('data: {"status":"starting","message":"Launching browser..."}\n\n'));
-				
+
 				const browser = await getBrowser();
 				const page = await browser.newPage();
 

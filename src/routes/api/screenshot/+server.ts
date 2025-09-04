@@ -11,7 +11,7 @@ async function getBrowser(): Promise<Browser> {
 		browserInstance = await chromium.launch(!dev ? {
 			executablePath: '/usr/bin/chromium-browser',
 			args: [
-				'--no-sandbox', 
+				'--no-sandbox',
 				'--disable-dev-shm-usage',
 				'--font-render-hinting=none',
 				'--disable-font-subpixel-positioning'
@@ -22,6 +22,9 @@ async function getBrowser(): Promise<Browser> {
 }
 
 export const GET: RequestHandler = async ({ url: requestUrl }) => {
+	return error(512, {
+		message: "We are working on a better solution for you, please try again later"
+	});
 	const targetUrl = requestUrl.searchParams.get('url');
 	const fullpage = requestUrl.searchParams.get('fullpage');
 

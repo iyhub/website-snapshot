@@ -80,7 +80,14 @@
 			);
 
 			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
+				if (response.status === 512) {
+					throw new Error(
+						"We are working on a better solution for you, please try again later",
+					);
+				} else {
+					throw new Error(`HTTP error! status: ${response.status} `);
+				}
+				throw new Error(`HTTP error! status: ${response.status} `);
 			}
 
 			const blob = await response.blob();
@@ -204,7 +211,7 @@
 
 				{#if error}
 					<div class="bg-red-50 border border-red-200 rounded-md p-4">
-						<p class="text-red-700">Error: {error}</p>
+						<p class="text-amber-700">Error: {error}</p>
 					</div>
 				{/if}
 
