@@ -10,8 +10,6 @@ RUN apk add --no-cache \
     harfbuzz \
     ca-certificates \
     ttf-freefont \
-    wqy-zenhei \
-    ttf-wqy-zenhei \
     ttf-dejavu \
     fontconfig
 
