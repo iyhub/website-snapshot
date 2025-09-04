@@ -9,11 +9,18 @@ RUN apk add --no-cache \
     freetype-dev \
     harfbuzz \
     ca-certificates \
-    ttf-freefont
+    ttf-freefont \
+    wqy-zenhei \
+    ttf-wqy-zenhei \
+    ttf-dejavu \
+    fontconfig
 
-# 设置 Chromium 路径
+# 设置 Chromium 路径和字体配置
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# 配置字体缓存
+RUN fc-cache -fv
 
 # 安装 pnpm
 RUN npm install -g pnpm

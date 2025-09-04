@@ -10,7 +10,12 @@ async function getBrowser(): Promise<Browser> {
 		console.log('Launching browser for streaming API');
 		browserInstance = await chromium.launch(!dev ? {
 			executablePath: '/usr/bin/chromium-browser',
-			args: ['--no-sandbox', '--disable-dev-shm-usage']
+			args: [
+				'--no-sandbox', 
+				'--disable-dev-shm-usage',
+				'--font-render-hinting=none',
+				'--disable-font-subpixel-positioning'
+			]
 		} : {});
 	}
 	return browserInstance;
