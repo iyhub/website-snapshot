@@ -1,15 +1,12 @@
 <script lang="ts">
-    import { PUBLIC_CLARITY_ID } from "$env/static/public";
 </script>
 
 <svelte:head>
-    {#if PUBLIC_CLARITY_ID}
-        {@html `<script>
+    {@html `<script>
 (function (c, l, a, r, i, t, y) {
 	c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
 	t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
 	y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-})(window, document, "clarity", "script", "${PUBLIC_CLARITY_ID}");
+})(window, document, "clarity", "script", "t5965opfja");
 </script>`}
-    {/if}
 </svelte:head>
