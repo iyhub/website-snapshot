@@ -69,6 +69,9 @@ export const GET: RequestHandler = async ({ url: requestUrl }) => {
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { url: targetUrl } = await request.json();
+	return error(512, {
+		message: "We are working on a better solution for you, please try again later"
+	});
 
 	if (!targetUrl) {
 		return error(400, { message: 'URL is required in request body' });
